@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Логин{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <p>Информация о пользователе:
+        <ul>
+            <li>Имя пользователя: {{ username }}</li>
+            <li>Роль пользователя: {{ user_role }}</li>
+        </ul>
+    </p>
+{% endblock %}
