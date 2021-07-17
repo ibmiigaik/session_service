@@ -7,6 +7,8 @@ from session_service.utils import user as current_user
 from session_service.utils.user import get_current_user
 from session_service.utils.helpers import redirect_url, get_errors, create_session, clear_session
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 auth = Blueprint("auth", __name__)
 
@@ -21,7 +23,7 @@ def register():
 
     if request.method == "POST":
         username = request.form.get("username", "").strip()
-        password = request.form.get("password", "").strip()
+        password = generate_password_hash(request.form.get("password", "")).strip()
 
         user = User.objects(username=username).first()
 
@@ -59,7 +61,7 @@ def login():
 
         user = User.objects(username=username).first()
 
-        if user and user.password == password:
+        if user and check_password_hash(user.password, password):
             create_session(user)
             return redirect(url_for("auth.user_info"))
 
