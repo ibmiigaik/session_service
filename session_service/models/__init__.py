@@ -17,7 +17,7 @@ class User(db.Document):
         users = [
             User(
                 username=f"student{i}",
-                password=generate_password_hash(f"student{i}password")
+                password=generate_password_hash(f"student{i}password"),
                 role="student",
             )
             for i in range(5)
