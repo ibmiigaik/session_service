@@ -1,5 +1,7 @@
 from flask_mongoengine import MongoEngine
 
+from werkzeug.security import generate_password_hash
+
 
 db = MongoEngine()
 
@@ -15,7 +17,7 @@ class User(db.Document):
         users = [
             User(
                 username=f"student{i}",
-                password=f"student{i}password",
+                password=generate_password_hash(f"student{i}password")
                 role="student",
             )
             for i in range(5)
@@ -24,7 +26,7 @@ class User(db.Document):
         users.append(
             User(
                 username=f"teacher",
-                password=f"teacherpassword",
+                password=generate_password_hash(f"teacherpassword"),
                 role="teacher",
             )
         )
@@ -32,7 +34,7 @@ class User(db.Document):
         users.append(
             User(
                 username=f"secretary",
-                password=f"secretarypassword",
+                password=generate_password_hash(f"secretarypassword"),
                 role="secretary",
             )
         )
