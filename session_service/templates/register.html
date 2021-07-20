@@ -11,10 +11,32 @@
     {% include "components/errors.html" %}
 
     <form method='post'>
-        <label for='username'>Username</label>
-        <input name='username' required>
-        <label for='password'>Password</label>
-        <input name='password' type='password' required>
-        <input type='submit' value='Login'>
+    	<p>
+        	<input name='username' placeholder = 'Введите ник' class = 'form_control' required><br>
+        </p>
+        <p>
+        	<input name='password' type='password' placeholder = 'Введите пароль' class = 'form_control' required><br>
+        </p>
+        <p>
+        	<input type = 'text' name = 'first_name' id = 'first_name' class = 'form_control' placeholder = 'Введите имя' required><br>
+        </p>
+        <p>
+        	<input type = 'text' name = 'last_name' id = 'last_name' class = 'form_control' placeholder = 'Введите фамилию' required><br>
+        </p>
+        <p>
+        	<input type = 'text' name = 'patronymic' id = 'patronymic' class = 'form_control' placeholder = 'Введите отчество' required><br>
+        </p>
+        <p>
+        	<input type = 'number' name = 'addmission_year' id = 'addmission_year' class = 'form_control' placeholder = 'Введите год поступления' required><br>
+        </p>
+        <p>
+        	<input type = 'text' name = 'direction' id = 'direction' class = 'form_control' placeholder = 'Введите направление' required><br>
+        </p>
+        <p>
+        	<input type = 'number' name = 'group_num' id = 'group_num' class = 'form_control' placeholder = 'Введите номер группы' required><br>
+        </p>
+        <p>
+        	<input type = 'submit' name = 'group_num' id = 'group_num' class = 'btn btn-success' value = 'Отправить'><br>
+        </p>
     </form>
 {% endblock %}

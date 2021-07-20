@@ -7,6 +7,8 @@ from session_service.utils import user as current_user
 from session_service.utils.user import get_current_user
 from session_service.utils.helpers import redirect_url, get_errors, create_session, clear_session
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 auth = Blueprint("auth", __name__)
 
@@ -21,7 +23,13 @@ def register():
 
     if request.method == "POST":
         username = request.form.get("username", "").strip()
-        password = request.form.get("password", "").strip()
+        password = generate_password_hash(request.form.get("password", "")).strip()
+        first_name = request.form.get("first_name","").strip()
+        last_name = request.form.get("last_name","").strip()
+        patronymic = request.form.get("patronymic","").strip()
+        addmission_year = request.form.get("addmission_year", "").strip()
+        direction = request.form.get("direction","").strip()
+        group_num = request.form.get("group_num", "").strip()
 
         user = User.objects(username=username).first()
 
@@ -34,10 +42,16 @@ def register():
                 errors=errors,
                 username=request.form["username"],
                 password=request.form["password"],
+                first_name = request.form['first_name'],
+                last_name = request.form['last_name'],
+                patronymic = request.form['patronymic'],
+                addmission_year = request.form['addmission_year'],
+                direction = request.form['direction'],
+                group_num = request.form['group_num']
             )
 
         with app.app_context():
-            user = User(username=username, password=password, role="student")
+            user = User(username = username, password = password, first_name = first_name, last_name = last_name, patronymic = patronymic, addmission_year = addmission_year, direction = direction, group_num = group_num, role="student")
             user.save()
 
             return redirect(url_for("auth.login"))
@@ -48,6 +62,7 @@ def register():
 
 @auth.route("/login", methods=["POST", "GET"])
 def login():
+
     errors = get_errors()
 
     if current_user.authed():
@@ -59,7 +74,7 @@ def login():
 
         user = User.objects(username=username).first()
 
-        if user and user.password == password:
+        if user and check_password_hash(user.password, password):
             create_session(user)
             return redirect(url_for("auth.user_info"))
 
@@ -76,7 +91,7 @@ def user_info():
     if current_user.authed():
         user = get_current_user()
         
-        return render_template('user_info.html', username=user.username, user_role=user.role)
+        return render_template('user_info.html', username=user.username, user_role=user.role, first_name = user.first_name, last_name = user.last_name, patronymic = user.patronymic, addmission_year = user.addmission_year, direction = user.direction, group_num = user.group_num)
 
     else:
         return redirect(url_for('auth.login'))
