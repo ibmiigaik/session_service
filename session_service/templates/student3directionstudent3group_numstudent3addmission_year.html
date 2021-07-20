@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Логин{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<table border="1", align="center">
+    <tr>
+        <td>День</td>
+        <td>Пара</td>
+        <td>Время</td>
+        <td>Предмет</td>
+        <td>Неделя</td>
+    </tr>
+    <tr>
+        <td>Среда</td>
+        <td>1</td>
+        <td>09.00 - 10.30</td>
+        <td>Языки программирования <br></td>
+        <td>Верхняя</td>
+</table>
+
+<li class='item'><a href="{{ url_for('auth.user_info') }}">Вернуться</a></li>
+
+{% endblock %}
