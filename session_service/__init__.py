@@ -8,7 +8,7 @@ def create_app(config="session_service.config.Config"):
     with app.app_context():
         app.config.from_object(config)
 
-        from session_service.models import db, User
+        from session_service.models import db, User, Table
         sess = Session()
 
         db.init_app(app)
@@ -20,6 +20,7 @@ def create_app(config="session_service.config.Config"):
 
         if app.config.get("DEBUG"):
             User.create_mock_users()
+            Table.create_mock_tables()
 
         from session_service.auth import auth
 
