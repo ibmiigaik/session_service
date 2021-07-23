@@ -1,5 +1,36 @@
 {% extends 'base.html' %}
-
+{% block style %}
+<style>
+    body {
+  background: rgb(10, 110, 224);
+  
+}
+      .header {
+  display: flex;
+  min-height: 50vh;
+  padding: 8px 50px;
+  background-color: #02f;
+  background-image: url("bg.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+h1 {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 5em;
+  font-weight: 700;
+}
+h2 {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  font-style: Italic;
+  background-color:orange
+}
+  </style>
+{% endblock %}
 {% block header %}
   <h1>{% block title %}Логин{% endblock %}</h1>
 {% endblock %}
