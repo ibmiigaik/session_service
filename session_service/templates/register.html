@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block header %}
+<nav>
+  <ul>
+      <li><a href="">Главная страница</a></li>
+      <li><a href="">Войти</a></li>
+      <li><a href="">Информация</a></li>
+      <li><a href="">Помощь</a></li>
+  </ul>
+</nav>
   <h1>{% block title %}Регистрация{% endblock %}</h1>
 {% endblock %}
 
@@ -35,8 +43,11 @@
         <p>
         	<input type = 'text' name = 'group_num' id = 'group_num' class = 'form_control' placeholder = 'Введите номер группы' pattern = '[0-9]{1}' required><br>
         </p>
-        <p>
+        
+      <p>
+      
         	<input type = 'submit' name = 'group_num' id = 'group_num' class = 'btn btn-success' value = 'Отправить'><br>
         </p>
+      
     </form>
 {% endblock %}

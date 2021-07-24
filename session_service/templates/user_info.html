@@ -5,8 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <p>Информация о пользователе:
-        <ul>
+<h2>Информация о пользователе:</h2>
+    <p>
+        <ol>
             <li>Ник: {{ username }}</li>
             <li>Имя: {{ first_name }}</li>
             <li>Фамилия: {{ last_name }}</li>
@@ -15,6 +16,6 @@
             <li>Направление: {{ direction }}</li>
             <li>Номер группы: {{ group_num }}</li>
             <li>Роль: {{ user_role }}</li>
-        </ul>
+        </ol>
     </p>
 {% endblock %}
