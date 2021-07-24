@@ -1,31 +1,16 @@
 body {
-  background: rgb(10, 110, 224);
-  
-}
-.form_control {
-   width: 25%;
-   height: 25%;
- padding-left: 10px;
-   display: block;
-   box-sizing: border-box;
-   width: 50%;
-   margin-bottom: 8px;
-   padding: 8px 16px;
-   transition: transform 0.3s ease-out;
-   color: #02f;
-   border: none;
-   border-radius: 8px;
-   outline: none;
-   background-color: #fff;
-   font-family: 'Open Sans', sans-serif;
-   font-size: 1.5em;
-   font-weight: 300;
+  background: white;
 }
 
+.form_control {
+  width: 25%;
+  height: 25%;
+}
 
 input[type=number] {
-  -moz-appearance:textfield;
+  -moz-appearance: textfield;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -170,13 +155,13 @@ body {
     font-size: 1.5em;
     font-weight: 700;
   }
-  
+
   .form_button:hover {
     transition: all 0.3s ease-out;
     transform: scale(1.02, 1.02);
     box-shadow: rgba(255, 255, 255, 0.3) 0 0 16px 2px;
   }
-  
+
 label {
 color:red;
 font-size:2em;
@@ -202,12 +187,7 @@ padding-left: 10px;
   .black {
     color: #000;
   }
-  
+
   .white {
     color: #fff;
   }
-
-ol {
-font-size:2em;
-font-family: Gill Sans Extrabold, sans-serif;
-}

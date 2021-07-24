@@ -12,16 +12,18 @@ def empty_str_cast(value, default=None):
 
     return value
 
+
 def gen_secret_key():
     return 'super secret key'
 
 
 class ServerConfig:
-    SECRET_KEY = empty_str_cast(config_ini["server"]["SECRET_KEY"]) or gen_secret_key()
+    SECRET_KEY = empty_str_cast(
+        config_ini["server"]["SECRET_KEY"]) or gen_secret_key()
 
 
 class DevelopmentConfig(ServerConfig):
-    #APPLICATION_ROOT = '/auth'
+    # APPLICATION_ROOT = '/auth'
 
     SECRET_KEY = "development secret key"
     DEBUG = True
