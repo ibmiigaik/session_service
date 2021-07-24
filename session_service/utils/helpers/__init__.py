@@ -1,5 +1,5 @@
-from flask import session
 from flask import request, url_for, get_flashed_messages
+from flask import session
 
 
 def redirect_url(default=''):
