@@ -6,37 +6,56 @@
 
 {% block content %}
 
-    <h2>Регистрация:</h2>
+  <h2>Регистрация:</h2>
 
-    {% include "components/errors.html" %}
+  {% include "components/errors.html" %}
 
-    <form method='post'>
-    	<p>
-        	<input name = 'username' type ='text' placeholder = 'Введите ник' class = 'form_control' minlength = '3' required><br>
-        </p>
-        <p>
-        	<input name='password' type='password' placeholder = 'Введите пароль' class = 'form_control' pattern ='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}' title = " the password must be at least 5 characters long. It must contain at least one uppercase and one lowercase letter" required><br>
-        </p>
-        <p>
-        	<input type = 'text' name = 'first_name' id = 'first_name' class = 'form_control' placeholder = 'Введите имя' pattern = '[A-я]{2,}' required><br>
-        </p>
-        <p>
-        	<input type = 'text' name = 'last_name' id = 'last_name' class = 'form_control' placeholder = 'Введите фамилию' pattern = '[A-я]{2,}' required><br>
-        </p>
-        <p>
-        	<input type = 'text' name = 'patronymic' id = 'patronymic' class = 'form_control' placeholder = 'Введите отчество' pattern = '[A-я]{2,}' required><br>
-        </p>
-        <p>
-        	<input type = 'text' name = 'addmission_year' id = 'addmission_year' class = 'form_control' placeholder = 'Введите год поступления' pattern = '[0-9]{4}' required><br>
-        </p>
-        <p>
-        	<input type = 'text' name = 'direction' id = 'direction' class = 'form_control' placeholder = 'Введите направление' pattern = '[A-я]{2,}' required><br>
-        </p>
-        <p>
-        	<input type = 'text' name = 'group_num' id = 'group_num' class = 'form_control' placeholder = 'Введите номер группы' pattern = '[0-9]{1}' required><br>
-        </p>
-        <p>
-        	<input type = 'submit' name = 'group_num' id = 'group_num' class = 'btn btn-success' value = 'Отправить'><br>
-        </p>
-    </form>
+  <form method='post'>
+    <p>
+      <input name='username' type='text' placeholder='Введите ник'
+             class='form_control' minlength='3' required><br>
+    </p>
+    <p>
+      <input name='password' type='password' placeholder='Введите пароль'
+             class='form_control'
+             pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}'
+             title=" the password must be at least 5 characters long. It must contain at least one uppercase and one lowercase letter"
+             required><br>
+    </p>
+    <p>
+      <input type='text' name='first_name' id='first_name' class='form_control'
+             placeholder='Введите имя'
+             pattern='[A-я]{2,}' required><br>
+    </p>
+    <p>
+      <input type='text' name='last_name' id='last_name' class='form_control'
+             placeholder='Введите фамилию'
+             pattern='[A-я]{2,}' required><br>
+    </p>
+    <p>
+      <input type='text' name='patronymic' id='patronymic' class='form_control'
+             placeholder='Введите отчество'
+             pattern='[A-я]{2,}' required><br>
+    </p>
+    <p>
+      <input type='text' name='addmission_year' id='addmission_year'
+             class='form_control'
+             placeholder='Введите год поступления' pattern='[0-9]{4}'
+             required><br>
+    </p>
+    <p>
+      <input type='text' name='direction' id='direction' class='form_control'
+             placeholder='Введите направление'
+             pattern='[A-я]{2,}' required><br>
+    </p>
+    <p>
+      <input type='text' name='group_num' id='group_num' class='form_control'
+             placeholder='Введите номер группы'
+             pattern='[0-9]{1}' required><br>
+    </p>
+    <p>
+      <input type='submit' name='group_num' id='group_num'
+             class='btn btn-success' value='Отправить'><br>
+    </p>
+  </form>
 {% endblock %}
