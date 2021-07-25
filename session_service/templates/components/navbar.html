@@ -1,7 +1,8 @@
 <nav class='nav-content'>
     <ul class="nav-links">
         <li class="item logo"><a href="#">LOGO</a></li>
-        {% if authed() %}
+        {% if authed() %} 
+            <li class='item'><a href="{{ url_for('auth.account') }}">Личный кабинет</a></li>
             <li class='item'><a href="{{ url_for('auth.logout') }}">Выйти</a></li>
         {% else %}
             <li class="item"><a href="{{ url_for('auth.register') }}">Регистрация</a></li>

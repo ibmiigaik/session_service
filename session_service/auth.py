@@ -2,7 +2,7 @@ from flask import current_app as app
 from flask import Blueprint, session
 from flask import request, get_flashed_messages, render_template, redirect, url_for
 
-from session_service.models import User
+from session_service.models import User, Schedule
 from session_service.utils import user as current_user
 from session_service.utils.user import get_current_user
 from session_service.utils.helpers import redirect_url, get_errors, create_session, clear_session
@@ -90,8 +90,31 @@ def user_info():
 
     if current_user.authed():
         user = get_current_user()
-        
+
         return render_template('user_info.html', username=user.username, user_role=user.role, first_name = user.first_name, last_name = user.last_name, patronymic = user.patronymic, addmission_year = user.addmission_year, direction = user.direction, group_num = user.group_num)
+    else:
+        return redirect(url_for('auth.login'))
+
+
+@auth.route('/account', methods=['GET'])
+def account():
+    errors = get_errors()
+
+    if current_user.authed():
+        user = get_current_user()
+
+        if (user.role) == 'student':
+            check = user.direction + user.group_num + user.addmission_year
+
+        if (user.role) == 'teacher':
+            check = user.first_name + user.last_name + user.patronymic
+
+        sch = Schedule.objects(check=check).first()
+
+        if sch:
+            return render_template('account.html', schedule = sch.schedule)
+        else:
+            return render_template('account.html')
 
     else:
         return redirect(url_for('auth.login'))

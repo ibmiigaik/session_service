@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Логин{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+    {% if schedule %}
+    <div>{% include "components/schedule.html" %}</div>
+    {% endif %}
+
+{% endblock %}

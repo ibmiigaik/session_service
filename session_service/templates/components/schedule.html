@@ -1,0 +1,543 @@
+<script>
+	window.onload = function() {
+		var table = document.getElementsByClassName('table')[0];
+		for (var i = 0; i < table.rows.length; i++) {
+			if((table.getElementsByClassName('td')[i].textContent == "None") || (table.getElementsByClassName('td')[i].textContent == "")) {
+				table.getElementsByClassName('tr')[i].style.display = "none";
+			}
+		}
+	};
+
+</script>
+
+
+<table class="table" border="1" align="center" >
+		<tr>
+			<td>Пара</td>
+			<td>Время</td>
+			<td>Предмет</td>
+			<td>Неделя</td>
+		</tr>
+		<tr class="tr">
+			<td class="td" colspan="4">{{ schedule.monday.day }}</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.monday.lessons.up.first }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.monday.lessons.up.second }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.monday.lessons.up.third }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.monday.lessons.up.fourth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.monday.lessons.up.fifth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.monday.lessons.up.sixth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.monday.lessons.up.seventh }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.monday.lessons.down.first }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.monday.lessons.down.second }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.monday.lessons.down.third }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.monday.lessons.down.fourth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.monday.lessons.down.fifth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.monday.lessons.down.sixth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.monday.lessons.down.seventh }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr tr class="tr">
+			<td class="td" colspan="4">{{ schedule.tuesday.day }}</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.first }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.second }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.third }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.fourth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.fifth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.sixth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.tuesday.lessons.up.seventh }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.first }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.second }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.third }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.fourth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.fifth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.sixth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.tuesday.lessons.down.seventh }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td class="td" colspan="4">{{ schedule.wednesday.day }}</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.wednesday.lessons.up.first }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.wednesday.lessons.up.second }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.wednesday.lessons.up.third }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.fourth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.fifth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.tuesday.lessons.up.sixth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.tuesday.lessons.up.seventh }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.first }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.second }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.third }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.fourth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.fifth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.tuesday.lessons.down.sixth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.tuesday.lessons.down.seventh }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td class="td" colspan="4">{{ schedule.thursday.day }}</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.thursday.lessons.up.first }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.thursday.lessons.up.second }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.thursday.lessons.up.third }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.thursday.lessons.up.fourth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.thursday.lessons.up.fifth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.thursday.lessons.up.sixth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.thursday.lessons.up.seventh }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.thursday.lessons.down.first  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.thursday.lessons.down.second  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.thursday.lessons.down.third  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.thursday.lessons.down.fourth  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.thursday.lessons.down.fifth  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.thursday.lessons.down.sixth  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.thursday.lessons.down.seventh  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td class="td" colspan="4">{{ schedule.friday.day }}</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.friday.lessons.up.first  }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.friday.lessons.up.second  }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.friday.lessons.up.third  }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.friday.lessons.up.fourth  }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.friday.lessons.up.fifth  }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.friday.lessons.up.sixth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.friday.lessons.up.seventh }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.friday.lessons.down.first }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.friday.lessons.down.second }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.friday.lessons.down.third }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.friday.lessons.down.fourth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.friday.lessons.down.fifth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.friday.lessons.down.sixth }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.friday.lessons.down.seventh }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td class="td" colspan="4">{{ schedule.saturday.day }}</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.saturday.lessons.up.first }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.saturday.lessons.up.second }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.saturday.lessons.up.third }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.saturday.lessons.up.fourth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.saturday.lessons.up.fifth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.saturday.lessons.up.sixth }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.saturday.lessons.up.seventh }}</td>
+			<td>Верхняя</td>
+		</tr>
+		<tr class="tr">
+			<td>1</td>
+			<td>09.00 - 10.30</td>
+			<td class="td">{{ schedule.saturday.lessons.down.first }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>2</td>
+			<td>10.40 - 12.10</td>
+			<td class="td">{{ schedule.saturday.lessons.down.second  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>3</td>
+			<td>12.50 - 14.20</td>
+			<td class="td">{{ schedule.saturday.lessons.down.third  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>4</td>
+			<td>14.30 - 16.00</td>
+			<td class="td">{{ schedule.saturday.lessons.down.fourth  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>5</td>
+			<td>16.10 - 17.40</td>
+			<td class="td">{{ schedule.saturday.lessons.down.fifth  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>6</td>
+			<td>17.50 - 19.20</td>
+			<td class="td">{{ schedule.saturday.lessons.down.sixth  }}</td>
+			<td>Нижняя</td>
+		</tr>
+		<tr class="tr">
+			<td>7</td>
+			<td>19.30 - 21.00 </td>
+			<td class="td">{{ schedule.saturday.lessons.down.seventh  }}</td>
+			<td>Нижняя</td>
+		</tr>
+</table>
