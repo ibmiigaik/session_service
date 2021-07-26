@@ -1,18 +1,117 @@
+/* Global styles */
+:root {
+  --radius: .25em;
+  --primary-color: royalblue;
+  --secondary-color: gray;
+  --error-color: red;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
 body {
-  background: white;
-}
-
-.form_control {
-  width: 25%;
-  height: 25%;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+main {
+  flex: 1 0 auto;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1440px) {
+  main {
+    max-width: 1350px;
+  }
+}
+
+/* Form */
+.from {
+  padding: 20px;
+}
+
+.form__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form__legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  width: 100%;
+  margin: .6em 0;
+  padding: 0;
+}
+
+.form-control,
+.form-control__input,
+.form-control__label {
+  display: block;
+  width: 100%;
+}
+
+.form-control {
+  margin-bottom: 1em;
+}
+
+.form-control__input {
+  margin-bottom: 5px;
+  font-size: 1em;
+  padding: .5em .75em;
+  border-radius: var(--radius);
+  border: var(--secondary-color) 2px solid;
+}
+
+.form-control__input:invalid:not(:placeholder-shown) {
+  border-color: var(--error-color);
+}
+
+.form-control__invalid-message {
+  display: block;
+  color: var(--secondary-color);
+  font-size: .75em;
+}
+
+.form-control__input:invalid:not(:placeholder-shown) + .form-control__invalid-message {
+  color: var(--error-color);
+}
+
+.form-control__input:focus {
+  outline: none;
+  border: var(--primary-color) 2px solid;
+}
+
+.form-control__label {
+  font-size: .95em;
+  margin-bottom: 7px;
+}
+
+/* Buttons */
+
+.button {
+  display: block;
+  font-size: 1em;
+  background-color: transparent;
+  border: var(--secondary-color) 2px solid;
+  padding: .5em .75em;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+  border-color: var(--primary-color);
 }
