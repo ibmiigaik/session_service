@@ -8,13 +8,16 @@
   <title>Авторизация</title>
 </head>
 <body>
-{% include "components/navbar.html" %}
-
+<header>
+  {% include "components/navbar.html" %}
+</header>
 <main>
   {% block content %}
   {% endblock %}
 </main>
 
-{% include "components/footer.html" %}
+<footer>
+  {% include "components/footer.html" %}
+</footer>
 </body>
 </html>
