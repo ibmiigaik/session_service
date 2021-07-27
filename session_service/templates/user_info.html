@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
-
-{% block header %}
-  <h1>{% block title %}Логин{% endblock %}</h1>
+{% block title %}
+  Информация о пользователе
 {% endblock %}
 
 {% block content %}
-<h2>Информация о пользователе:</h2>
-    <p>
-        <ol>
-            <li>Ник: {{ username }}</li>
-            <li>Имя: {{ first_name }}</li>
-            <li>Фамилия: {{ last_name }}</li>
-            <li>Отчество: {{ patronymic }}</li>
-            <li>Год поступления: {{ addmission_year }}</li>
-            <li>Направление: {{ direction }}</li>
-            <li>Номер группы: {{ group_num }}</li>
-            <li>Роль: {{ user_role }}</li>
-        </ol>
-    </p>
+  <p>Логин: {{ username }}</p>
+  <p>Имя: {{ first_name }}</p>
+  <p>Фамилия: {{ last_name }}</p>
+  <p>Отчество: {{ patronymic }}</p>
+  <p>Год поступления: {{ admission_year }}</p>
+  <p>Направление: {{ direction }}</p>
+  <p>Номер группы: {{ group_num }}</p>
+  <p>Роль: {{ user_role }}</p>
 {% endblock %}

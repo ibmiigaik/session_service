@@ -20,13 +20,14 @@ def register():
         return redirect(redirect_url())
 
     if request.method == "POST":
-        username = request.form.get("username", "").strip()
+        username = request.form.get("login", "").strip()
         password = generate_password_hash(
-            request.form.get("password", "")).strip()
+            request.form.get("password", "").strip()
+        )
         first_name = request.form.get("first_name", "").strip()
         last_name = request.form.get("last_name", "").strip()
         patronymic = request.form.get("patronymic", "").strip()
-        addmission_year = request.form.get("addmission_year", "").strip()
+        admission_year = request.form.get("admission_year", "").strip()
         direction = request.form.get("direction", "").strip()
         group_num = request.form.get("group_num", "").strip()
 
@@ -39,28 +40,27 @@ def register():
             return render_template(
                 "register.html",
                 errors=errors,
-                username=request.form["username"],
+                username=request.form["login"],
                 password=request.form["password"],
-                first_name=request.form['first_name'],
-                last_name=request.form['last_name'],
-                patronymic=request.form['patronymic'],
-                addmission_year=request.form['addmission_year'],
-                direction=request.form['direction'],
-                group_num=request.form['group_num']
+                first_name=request.form["first_name"],
+                last_name=request.form["last_name"],
+                patronymic=request.form["patronymic"],
+                admission_year=request.form["admission_year"],
+                direction=request.form["direction"],
+                group_num=request.form["group_num"]
             )
 
         with app.app_context():
             user = User(username=username, password=password,
                         first_name=first_name, last_name=last_name,
-                        patronymic=patronymic, addmission_year=addmission_year,
+                        patronymic=patronymic, admission_year=admission_year,
                         direction=direction,
                         group_num=group_num, role="student")
             user.save()
 
             return redirect(url_for("auth.login"))
 
-    else:
-        return render_template("register.html", errors=errors)
+    return render_template("register.html", errors=errors)
 
 
 @auth.route("/login", methods=["POST", "GET"])
@@ -68,10 +68,10 @@ def login():
     errors = get_errors()
 
     if current_user.authorized():
-        return redirect(url_for('auth.user_info'))
+        return redirect(url_for("auth.user_info"))
 
     if request.method == "POST":
-        username = request.form["username"]
+        username = request.form["login"]
         password = request.form["password"]
 
         user = User.objects(username=username).first()
@@ -80,33 +80,33 @@ def login():
             create_session(user)
             return redirect(url_for("auth.user_info"))
 
-        else:
-            errors.append('Username or password incorrect')
+        errors.append("Username or password incorrect")
 
     return render_template("login.html", errors=errors)
 
 
-@auth.route('/user_info', methods=['GET'])
+@auth.route("/user_info", methods=["GET"])
 def user_info():
     if current_user.authorized():
         user = get_current_user()
+        return render_template(
+            "user_info.html",
+            username=user.username,
+            user_role=user.role,
+            first_name=user.first_name,
+            last_name=user.last_name,
+            patronymic=user.patronymic,
+            admission_year=user.admission_year,
+            direction=user.direction,
+            group_num=user.group_num
+        )
 
-        return render_template('user_info.html', username=user.username,
-                               user_role=user.role,
-                               first_name=user.first_name,
-                               last_name=user.last_name,
-                               patronymic=user.patronymic,
-                               addmission_year=user.addmission_year,
-                               direction=user.direction,
-                               group_num=user.group_num)
-
-    else:
-        return redirect(url_for('auth.login'))
+    return redirect(url_for("auth.login"))
 
 
-@auth.route('/logout', methods=['GET'])
+@auth.route("/logout", methods=["GET"])
 def logout():
     if current_user.authorized():
         clear_session()
 
-    return redirect(redirect_url('auth.login'))
+    return redirect(redirect_url("auth.login"))

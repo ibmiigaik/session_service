@@ -1,12 +1,33 @@
-<nav class='nav-content'>
-  <ul class="nav-links">
-    <li class="item logo"><a href="#">LOGO</a></li>
+{% macro header_nav_link(page="") %}
+  {% set link = page if page.startswith('/') else url_for(page) %}
+  {% set current_page = url_for(request.endpoint) %}
+  {% if current_page == link %}
+    <li class='nav__item nav__item--current'>
+      <a class="nav__link" aria-current="page">{{ caller() }}</a>
+    </li>
+  {% else %}
+    <li class='nav__item'>
+      <a href="{{ link }}" class="nav__link">{{ caller() }}</a>
+    </li>
+  {% endif %}
+{% endmacro %}
+
+<nav class='nav'>
+  <ul class="nav__list">
+    {% call header_nav_link('/') %}
+      Logo
+    {% endcall %}
     {% if authorized() %}
-      <li class='item'><a href="{{ url_for('auth.logout') }}">Выйти</a></li>
+      {% call header_nav_link('auth.logout') %}
+        Выйти
+      {% endcall %}
     {% else %}
-      <li class="item"><a href="{{ url_for('auth.register') }}">Регистрация</a>
-      </li>
-      <li class="item"><a href="{{ url_for('auth.login') }}">Войти</a></li>
+      {% call header_nav_link('auth.register') %}
+        Регистрация
+      {% endcall %}
+      {% call header_nav_link('auth.login') %}
+        Войти
+      {% endcall %}
     {% endif %}
   </ul>
 </nav>

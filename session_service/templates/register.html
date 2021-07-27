@@ -1,20 +1,8 @@
 {% extends "base.html" %}
 
-{% block header %}
-<nav>
-  <ul>
-      <li><a href="">Главная страница</a></li>
-      <li><a href="">Войти</a></li>
-      <li><a href="">Информация</a></li>
-      <li><a href="">Помощь</a></li>
-  </ul>
-</nav>
-  <h1>{% block title %}Регистрация{% endblock %}</h1>
-{% endblock %}
+{% block title %}Регистрация{% endblock %}
 
 {% block content %}
-  <h2>Регистрация:</h2>
-  {% include "components/errors.html" %}
   <form method="post" class="form">
     <fieldset class="form__fieldset">
       <legend class="form__legend">Данные аккаунта</legend>
@@ -22,14 +10,15 @@
       <label class="form-control">
         <span class="form-control__label">Логин</span>
         <input
-                name="username"
+                name="login"
                 type="text"
                 placeholder="Введите ник"
                 class="form-control__input"
                 minlength="3"
-                pattern="[a-zA-Z_-]{3,}"
+                pattern="[0-9a-zA-Z_-]{3,}"
                 autocomplete="username"
-                required>
+                required
+        >
 
         <span class="form-control__invalid-message">
           Логин может состоять только из латиницы (<code>a-z</code>),
@@ -50,7 +39,7 @@
         <span class="form-control__invalid-message">
           Пароль должен содержать цифры (<code>0-9</code>),
           строчные (<code>a-z</code>) и заглавные (<code>A-Z</code>) латинские
-          буквы, длиной не менее 5 символов
+          буквы, длиной не менее 5-и символов
         </span>
       </label>
     </fieldset>
@@ -90,7 +79,7 @@
         <span class="form-control__label">Год поступления</span>
 
         <input type="number" min="1900" max="{{ current_year }}"
-               name="addmission_year" id="addmission_year"
+               name="admission_year" id="admission_year"
                class="form-control__input"
                placeholder="Введите год поступления" pattern="[0-9]{4}"
                required>
@@ -123,7 +112,7 @@
       </label>
     </fieldset>
 
-    <button type="submit" class="button button--primary">
+    <button type="submit" class="button button--primary w-100%">
       Отправить
     </button>
   </form>
