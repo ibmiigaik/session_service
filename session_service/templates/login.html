@@ -1,23 +1,31 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-
-
-
-{% block header %}
-  <h1>{% block title %}Логин{% endblock %}</h1>
-{% endblock %}
-
+{% block title %}Логин{% endblock %}
 {% block content %}
+  <form method="post">
+    <label class="form-control">
+      <span class="form-control__label">Логин</span>
+      <input
+              name="login"
+              type="text"
+              placeholder="Введите логин"
+              class="form-control__input"
+              minlength="3"
+              pattern="[0-9a-zA-Z_-]{3,}"
+              autocomplete="username"
+              required
+      >
+    </label>
+    <label class="form-control">
+      <span class="form-control__label">Пароль</span>
+      <input name="password" type="password" placeholder="Введите пароль"
+             class="form-control__input"
+             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
+             autocomplete="password"
+             minlength="5"
+             required>
 
-    <h2>Войти:</h2>
-
-    {% include "components/errors.html" %}
-
-    <form method='post'>
-        <label for='username'>Username</label>
-        <input name='username' required>
-        <label for='password'>Password</label>
-        <input name='password' type='password' required>
-        <input type='submit' value='Login'>
-    </form>
+    </label>
+    <button type="submit" class="button button--primary w-100%">Войти</button>
+  </form>
 {% endblock %}

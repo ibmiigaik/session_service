@@ -12,24 +12,26 @@ def empty_str_cast(value, default=None):
 
     return value
 
+
 def gen_secret_key():
     return 'super secret key'
 
 
 class ServerConfig:
-    SECRET_KEY = empty_str_cast(config_ini["server"]["SECRET_KEY"]) or gen_secret_key()
+    SECRET_KEY = empty_str_cast(
+        config_ini["server"]["SECRET_KEY"]) or gen_secret_key()
 
 
 class DevelopmentConfig(ServerConfig):
-    #APPLICATION_ROOT = '/auth'
+    # APPLICATION_ROOT = '/auth'
 
     SECRET_KEY = "development secret key"
     DEBUG = True
 
-    MONGODB_HOST = 'mongomock://localhost'
-    MONGODB_DB = 'testing1'
+    MONGODB_HOST = config_ini['server']['MONGODB_HOST']
+    MONGODB_DB = config_ini['server']['MONGODB_DB']
 
-    SESSION_TYPE = 'filesystem'
+    SESSION_TYPE = config_ini['server']['SESSION_TYPE']
     SESSION_FILE_DIR = config_ini['server']['SESSION_FILE_DIR']
 
 
