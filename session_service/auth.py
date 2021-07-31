@@ -39,7 +39,7 @@ def register():
             return render_template(
                 "register.html",
                 errors=errors,
-                username=request.form["username"],
+                username=request.form["login"],
                 password=request.form["password"],
                 first_name=request.form['first_name'],
                 last_name=request.form['last_name'],
@@ -59,8 +59,7 @@ def register():
 
             return redirect(url_for("auth.login"))
 
-    else:
-        return render_template("register.html", errors=errors)
+    return render_template("register.html", errors=errors)
 
 
 @auth.route("/login", methods=["POST", "GET"])
@@ -68,10 +67,10 @@ def login():
     errors = get_errors()
 
     if current_user.authorized():
-        return redirect(url_for('auth.user_info'))
+        return redirect(url_for("auth.user_info"))
 
     if request.method == "POST":
-        username = request.form["username"]
+        username = request.form["login"]
         password = request.form["password"]
 
         user = User.objects(username=username).first()
@@ -80,17 +79,15 @@ def login():
             create_session(user)
             return redirect(url_for("auth.user_info"))
 
-        else:
-            errors.append('Username or password incorrect')
+        errors.append("Username or password incorrect")
 
     return render_template("login.html", errors=errors)
 
 
-@auth.route('/user_info', methods=['GET'])
+@auth.route("/user_info", methods=["GET"])
 def user_info():
     if current_user.authorized():
         user = get_current_user()
-
         return render_template('user_info.html', username=user.username,
                                user_role=user.role,
                                first_name=user.first_name,
@@ -99,14 +96,12 @@ def user_info():
                                addmission_year=user.addmission_year,
                                direction=user.direction,
                                group_num=user.group_num)
-
-    else:
-        return redirect(url_for('auth.login'))
+      return redirect(url_for('auth.login'))
 
 
-@auth.route('/logout', methods=['GET'])
+@auth.route("/logout", methods=["GET"])
 def logout():
     if current_user.authorized():
         clear_session()
 
-    return redirect(redirect_url('auth.login'))
+    return redirect(redirect_url("auth.login"))

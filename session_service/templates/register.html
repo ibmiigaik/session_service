@@ -1,69 +1,119 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block header %}
-<nav>
-  <ul>
-      <li><a href="">Главная страница</a></li>
-      <li><a href="">Войти</a></li>
-      <li><a href="">Информация</a></li>
-      <li><a href="">Помощь</a></li>
-  </ul>
-</nav>
-  <h1>{% block title %}Регистрация{% endblock %}</h1>
-{% endblock %}
+{% block title %}Регистрация{% endblock %}
 
 {% block content %}
+  <form method="post" class="form">
+    <fieldset class="form__fieldset">
+      <legend class="form__legend">Данные аккаунта</legend>
 
-  <h2>Регистрация:</h2>
+      <label class="form-control">
+        <span class="form-control__label">Логин</span>
+        <input
+                name="login"
+                type="text"
+                placeholder="Введите ник"
+                class="form-control__input"
+                minlength="3"
+                pattern="[0-9a-zA-Z_-]{3,}"
+                autocomplete="username"
+                required
+        >
 
-  {% include "components/errors.html" %}
+        <span class="form-control__invalid-message">
+          Логин может состоять только из латиницы (<code>a-z</code>),
+          нижнего подчёркивания (<code>_</code>) и дефиса (<code>-</code>),
+          длиной не менее 3-х символов
+        </span>
+      </label>
 
-  <form method='post'>
-    <p>
-      <input name='username' type='text' placeholder='Введите ник'
-             class='form_control' minlength='3' required><br>
-    </p>
-    <p>
-      <input name='password' type='password' placeholder='Введите пароль'
-             class='form_control'
-             pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}'
-             title=" the password must be at least 5 characters long. It must contain at least one uppercase and one lowercase letter"
-             required><br>
-    </p>
-    <p>
-      <input type='text' name='first_name' id='first_name' class='form_control'
-             placeholder='Введите имя'
-             pattern='[A-я]{2,}' required><br>
-    </p>
-    <p>
-      <input type='text' name='last_name' id='last_name' class='form_control'
-             placeholder='Введите фамилию'
-             pattern='[A-я]{2,}' required><br>
-    </p>
-    <p>
-      <input type='text' name='patronymic' id='patronymic' class='form_control'
-             placeholder='Введите отчество'
-             pattern='[A-я]{2,}' required><br>
-    </p>
-    <p>
-      <input type='text' name='addmission_year' id='addmission_year'
-             class='form_control'
-             placeholder='Введите год поступления' pattern='[0-9]{4}'
-             required><br>
-    </p>
-    <p>
-      <input type='text' name='direction' id='direction' class='form_control'
-             placeholder='Введите направление'
-             pattern='[A-я]{2,}' required><br>
-    </p>
-    <p>
-      <input type='text' name='group_num' id='group_num' class='form_control'
-             placeholder='Введите номер группы'
-             pattern='[0-9]{1}' required><br>
-    </p>
-    <p>
-      <input type='submit' name='group_num' id='group_num'
-             class='btn btn-success' value='Отправить'><br>
-    </p>
+      <label class="form-control">
+        <span class="form-control__label">Пароль</span>
+        <input name="password" type="password" placeholder="Введите пароль"
+               class="form-control__input"
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
+               autocomplete="new-password"
+               minlength="5"
+               required>
+
+        <span class="form-control__invalid-message">
+          Пароль должен содержать цифры (<code>0-9</code>),
+          строчные (<code>a-z</code>) и заглавные (<code>A-Z</code>) латинские
+          буквы, длиной не менее 5-и символов
+        </span>
+      </label>
+    </fieldset>
+
+    <fieldset class="form__fieldset">
+      <legend class="form__legend">Ваши данные</legend>
+
+      <label class="form-control">
+        <span class="form-control__label">Имя</span>
+        <input type="text" name="first_name" class="form-control__input"
+               placeholder="Введите имя"
+               autocomplete="given-name"
+               pattern="[A-Яа-яё-]{2,}" required>
+      </label>
+
+      <label class="form-control">
+        <span class="form-control__label">Фамилия</span>
+        <input type="text" name="last_name" class="form-control__input"
+               placeholder="Введите фамилию"
+               autocomplete="family-name"
+               pattern="[A-Яа-яё-]{2,}" required>
+      </label>
+
+      <label class="form-control">
+        <span class="form-control__label">Отчество</span>
+        <input type="text" name="patronymic" class="form-control__input"
+               autocomplete="additional-name"
+               placeholder="Введите отчество"
+               pattern="[A-Яа-яё-]{2,}">
+      </label>
+    </fieldset>
+
+    <fieldset class="form__fieldset">
+      <legend class="form__legend">Данные о группе</legend>
+
+      <label class="form-control">
+        <span class="form-control__label">Год поступления</span>
+
+        <input type="number" min="1900" max="{{ current_year }}"
+               name="admission_year" id="admission_year"
+               class="form-control__input"
+               placeholder="Введите год поступления" pattern="[0-9]{4}"
+               required>
+      </label>
+
+      <label class="form-control">
+        <span class="form-control__label">Направление</span>
+
+        <input type="text" name="direction" class="form-control__input"
+               placeholder="Введите направление"
+               pattern="[A-Яа-яё ]{2,}" required>
+      </label>
+
+      <label class="form-control">
+        <span class="form-control__label">Номер группы</span>
+
+        <select name="group_num"
+                class="form-control__input" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <button type="submit" class="button button--primary w-100%">
+      Отправить
+    </button>
   </form>
 {% endblock %}

@@ -1,6 +1,10 @@
 from flask import Flask
 from flask_session import Session
 
+from session_service.auth import auth
+from session_service.models import db, User
+from session_service.utils.initialization import init_template_globals
+
 
 def create_app(config="session_service.config.Config"):
     app = Flask(__name__)
@@ -8,20 +12,15 @@ def create_app(config="session_service.config.Config"):
     with app.app_context():
         app.config.from_object(config)
 
-        from session_service.models import db, User
-        sess = Session()
+        session = Session()
 
         db.init_app(app)
-        sess.init_app(app)
-
-        from session_service.utils.initialization import init_template_globals
+        session.init_app(app)
 
         init_template_globals(app)
 
         if app.config.get("DEBUG"):
             User.create_mock_users()
-
-        from session_service.auth import auth
 
         app.register_blueprint(auth)
 

@@ -28,10 +28,10 @@ class DevelopmentConfig(ServerConfig):
     SECRET_KEY = "development secret key"
     DEBUG = True
 
-    MONGODB_HOST = 'mongomock://localhost'
-    MONGODB_DB = 'testing1'
+    MONGODB_HOST = config_ini['server']['MONGODB_HOST']
+    MONGODB_DB = config_ini['server']['MONGODB_DB']
 
-    SESSION_TYPE = 'filesystem'
+    SESSION_TYPE = config_ini['server']['SESSION_TYPE']
     SESSION_FILE_DIR = config_ini['server']['SESSION_FILE_DIR']
 
 

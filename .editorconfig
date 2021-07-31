@@ -10,7 +10,8 @@ max_line_length = 80
 tab_width = 4
 trim_trailing_whitespace = true
 
-[*.{html, css}]
+[*.{html, css, js}]
+max_line_length = 120
 indent_size = 2
 tab_width = 2
 

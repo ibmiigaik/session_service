@@ -11,7 +11,7 @@ class User(db.Document):
     first_name = db.StringField()
     last_name = db.StringField()
     patronymic = db.StringField()
-    addmission_year = db.StringField()
+    admission_year = db.StringField()
     direction = db.StringField()
     group_num = db.StringField()
 
